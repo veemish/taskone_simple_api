@@ -3,8 +3,8 @@ const app = express();
 const port = 5000;
 
 const headSetter = (req, res, next) => {
-    res.SetHeader('Content-Type', "application/json")
-    res.SetHeader('Access-Control-Allow-origin',"*")
+    res.setHeader('Content-Type', "application/json")
+    res.setHeader('Access-Control-Allow-origin',"*")
 
     next()
 }
