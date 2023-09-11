@@ -8,10 +8,25 @@ const PORT = 4000;
 
 
 const currentDate = new Date() 
-const utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
+/*const utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
+
+/**/
+
+// const currentUtcTime = new Date().toISOString();
+
+const current = new Date();
+const year = current.getUTCFullYear();
+const month = String(current.getUTCMonth() + 1).padStart(2, "0"); // Add 1 to month because it's 0-indexed
+const day = String(current.getUTCDate()).padStart(2, "0");
+const hours = String(current.getUTCHours()).padStart(2, "0");
+const minutes = String(current.getUTCMinutes()).padStart(2, "0");
+const seconds = String(current.getUTCSeconds()).padStart(2, "0");
+
+const currentUtcTime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+
 
 /*Time ----------------------------- */
 
@@ -35,7 +50,7 @@ const server = http.createServer((req, res) => {
     JSON.stringify({
  "slack_name": "Vee",
   "current_day": `${currentDayToday}`,
-  "utc_time": `${utc_time}`,
+  "utc_time": `${currentUtcTime}`,
   "track": "backend",
   "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
   "github_repo_url": "https://github.com/veemish/taskone_simple_api",
