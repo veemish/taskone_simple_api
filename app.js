@@ -48,11 +48,11 @@ server.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
 
 })
-app.get('/api?slack_name=Vee&track=backend', (req, res) => {
+/*app.get('/api?slack_name=Vee&track=backend', (req, res) => {
     
 
 
-})
+})*/
 
 
 
