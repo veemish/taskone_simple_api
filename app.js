@@ -5,14 +5,15 @@ const http = require('http');
 const PORT = 4000;
 
 let currentDate = new Date()
-let utc_time = currentDate.toISOString().slice(0,-5) +'Z';
+let utc_time = currentDate.toISOString(0,-5)+'Z';/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
-const daysInWeek = ["Sunday",'Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
+const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
-  res.end(JSON.stringify({"slack_name": "Vee",
+  res.end(JSON.stringify({
+ "slack_name": "Vee",
   "current_day": `${currentDayToday}`,
   "utc_time": `${utc_time}`,
   "track": "backend",
