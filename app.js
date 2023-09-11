@@ -8,8 +8,8 @@ const PORT = 4000;
 
 
 const currentDate = new Date() 
-const utcTime = new Date().toISOString().replace(/\.\d{3}Z$/,'Z');/* */
-/*const utc_time = currentDate.toISOString().slice(0,-5)+"Z";*//*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
+/*const utcTime = new Date().toISOString().replace(/\.\d{3}Z$/,'Z')*/;/*doesnt work */
+const utc_time = currentDate.toISOString().replace(/\.\d{3}Z$/,'Z');/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
