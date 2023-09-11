@@ -6,7 +6,7 @@ const PORT = 4000;
 
 
 let currentDate = new Date() 
-let utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
+const utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
@@ -46,6 +46,12 @@ server.listen(PORT, () => {
 
 })
 
+app.get("/api?slack_name=Vee&track=backend",(req,res)=>{
+    
+})
+
+
+
 /*  utc function
 function utcTime() {
     const now = new Date();
@@ -58,7 +64,7 @@ function utcTime() {
 
   res.end('some data')*/
 
-  app.get('/api?slack_name=Vee&track=backend', (req, res) => {
+ /* app.get('/api?slack_name=Vee&track=backend', (req, res) => {
     // handle the reques
     let currentDate = new Date()
     let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
@@ -80,7 +86,7 @@ function utcTime() {
     res.send('application/json').json(details)
   })
 
-
+*/
 
 /*app.get("/api?slack_name=Vee&&track=backend",(req, res) => {
    let slack_name = req.query.slack_name
