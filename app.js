@@ -6,15 +6,15 @@ const port = process.env.PORT || 5000;
 
 app.listen(port,() => console.log(`App is listening on port ${port}!`));
 
-  /*  const headSetter = (req, res, next) => {
+    const headSetter = (req, res, next) => {
     res.setHeader('Content-Type', 'application/json')
     res.setHeader('Access-Control-Allow-Origin','*')
 
     next()
 
     }
-app.use(headSetter)*/
-/*app.get('/api?slack_name=Vee&&track=backend',(req, res) => {
+app.use(headSetter)
+app.get('/api?slack_name=Vee&&track=backend',(req, res) => {
     res.send([
         {
             "slack_name": "Vee",
@@ -33,17 +33,17 @@ app.use('/', express.static('/build'))
 
 app.get("/:universalURL", (req, res) => {
     res.send("404 URL NOT FOUND");
-});*/
+});
 
-/*app.listen(5000, () => {
+app.listen(5000, () => {
     console.log("listening on http://localhost:5000");
-})*/
+})
 
-app.get("/api?slack_name=Vee&&track=backend",(req, res) => {
+/*app.get("/api?slack_name=Vee&&track=backend",(req, res) => {
    let slack_name = req.query.slack_name
     let track = req.query.track
     /*Date time*/
-   let currentDate = new Date()
+  /* let currentDate = new Date()
     let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
     const currentDateNum = currentDate.getDay();
     const daysInWeek = ['Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday','Sunday'];
@@ -63,12 +63,12 @@ app.get("/api?slack_name=Vee&&track=backend",(req, res) => {
     res.status(200).json(details)
     
 });
+*/
 
 
-
-app.get('*', (req, res) => {
+/*app.get('*', (req, res) => {
     res.status(404).json({"error":"The page your looking for is not here"})
-})
+})*/
 
 
 
