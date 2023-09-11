@@ -6,13 +6,13 @@ const PORT = 4000;
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
-  res.end({"slack_name": "Vee",
+  res.end(JSON.stringify({"slack_name": "Vee",
   "current_day": "Sunday",
   "utc_time": "2023-09-10T19:05:00",
   "track": "backend",
   "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
   "github_repo_url": "https://github.com/veemish/taskone_simple_api",
-  "status_code": 200} );
+  "status_code": 200} ));
 });
 
 server.listen(PORT, () => {
