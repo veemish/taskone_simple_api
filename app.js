@@ -4,11 +4,17 @@ const app = express();
 const http = require('http');
 const PORT = 4000;
 
+let currentDate = new Date()
+let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
+const currentDateNum = currentDate.getDay();
+const daysInWeek = ["Sunday",'Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
+const currentDayToday = daysInWeek[currentDateNum];
+
 const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
   res.end(JSON.stringify({"slack_name": "Vee",
-  "current_day": "Sunday",
-  "utc_time": "2023-09-10T19:05:00",
+  "current_day": `${currentDayToday}`,
+  "utc_time": `${utc_time}`,
   "track": "backend",
   "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
   "github_repo_url": "https://github.com/veemish/taskone_simple_api",
@@ -26,7 +32,7 @@ server.listen(PORT, () => {
 
   res.end('some data')*/
 
-  app.get('/api?slack_name=Vee&track=backend', (req, res) => {
+  /*app.get('/api?slack_name=Vee&track=backend', (req, res) => {
     // handle the reques
     let currentDate = new Date()
     let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
@@ -46,7 +52,7 @@ server.listen(PORT, () => {
 
 
     res.send('application/json').json(details)
-  })
+  })*/
 
 
 
