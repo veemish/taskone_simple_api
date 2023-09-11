@@ -4,7 +4,7 @@ const port = 5000;
 
 const headSetter = (req, res, next) => {
     res.setHeader('Content-Type', 'application/json')
-    res.setHeader('Access-Control-Allow-origin','*')
+    res.setHeader('Access-Control-Allow-Origin','*')
 
     next()
 }
@@ -35,11 +35,14 @@ app.get("/api",(req, res) => {
     
 });
 
+app.listen(port,() => console.log(`App is listening on port ${port}!`));
+
+
 app.get('*', (req, res) => {
     res.status(404).json({"error":"The page your looking for is not here"})
 })
 
-app.listen(port,() => console.log(`App is listening on port ${port}!`));
+
 
 
 
