@@ -4,10 +4,10 @@ const app = express();
 const http = require('http');
 const PORT = 4000;
 
-
+/*
 const currentDate = new Date() 
 const utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
-const currentDateNum = currentDate.getDay();
+/*const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
 
@@ -45,10 +45,25 @@ server.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
 
 })
+app.get('/api?slack_name=Vee&track=backend', (req, res) => {
+    res.send({
+        "slack_name": req.query.slack_name,
+        "current_day": DateTime.now().toFormat('cccc'),
+        "utc_time": DateTime.utc().toISO().slice(0, -5) + 'Z',
+        "track": req.query.track,
+        "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
+        "github_repo_url": "https://github.com/veemish/taskone_simple_api",
+        "status_code": 200
+    })
 
-app.get("/api?slack_name=Vee&track=backend",(req,res)=>{
-    
+
 })
+
+
+
+
+
+
 
 
 
