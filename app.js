@@ -12,16 +12,19 @@ let utc_time = currentDate.toISOString().split(".")+"Z";/*let utc_time = current
 /*const currentDayToday = daysInWeek[currentDateNum];
 /*different approach for utc time */
 /*Time ----------------------------- */
-function utcTime() {
-    const now = new Date();
-    let utc_time = currentDate.toISOString().split(".")[0] + "Z";
-    return utc_time;
-}
 
+let currentDate = new Date()
+let utc_time = currentDate.toISOString().split(".")[1,-2];/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
+const currentDateNum = currentDate.getDay();
+const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
+const currentDayToday = daysInWeek[currentDateNum];
+    /*let now = new Date();
+    utc_time = currentDate.toISOString().split(".")[0];*/
+  
 /*Day ---------------------------*/
 
-const daysInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const currentDayToday = daysInWeek[new Date().getDay()];
+/* works const daysInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const currentDayToday = daysInWeek[new Date().getDay()];*/
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
@@ -29,7 +32,7 @@ const server = http.createServer((req, res) => {
     JSON.stringify({
  "slack_name": "Vee",
   "current_day": `${currentDayToday}`,
-  "utc_time": `${utcTime()}`,
+  "utc_time": `${utc_time}`,
   "track": "backend",
   "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
   "github_repo_url": "https://github.com/veemish/taskone_simple_api",
