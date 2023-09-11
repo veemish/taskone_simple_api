@@ -11,7 +11,7 @@ app.listen(port,() => console.log(`App is listening on port ${port}!`));*/
 
     }
 app.use(headSetter)*/
-app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
+app.get('/api?slack_name=Vee&&track=backend',(req, res) => {
     res.send([
         {
             "slack_name": "Vee",
@@ -24,6 +24,14 @@ app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
         }
     ]);
 });
+
+app.get("/:universalURL", (req, res) => {
+    res.send("404 URL NOT FOUND");
+});
+
+app.listen(5000, () => {
+    console.log("listening on http://localhost:5000");
+})
 /*
 app.get("/api",(req, res) => {
    let slack_name = req.query.slack_name
