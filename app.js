@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 5000;
+app.listen(port,() => console.log(`App is listening on port ${port}!`));
 
 const headSetter = (req, res, next) => {
     res.setHeader('Content-Type', 'application/json')
@@ -35,13 +36,12 @@ app.get("/api",(req, res) => {
     
 });
 
-app.listen(port,() => console.log(`App is listening on port ${port}!`));
 
 
-app.get('*', (req, res) => {
+/*app.get('*', (req, res) => {
     res.status(404).json({"error":"The page your looking for is not here"})
 })
-
+*/
 
 
 
