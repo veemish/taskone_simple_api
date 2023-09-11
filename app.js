@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const port = 5000;
-app.listen(port,() => console.log(`App is listening on port ${port}!`));
+/*const port = 5000;
+app.listen(port,() => console.log(`App is listening on port ${port}!`));*/
 
   /*  const headSetter = (req, res, next) => {
     res.setHeader('Content-Type', 'application/json')
