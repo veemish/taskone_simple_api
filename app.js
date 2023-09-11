@@ -13,11 +13,15 @@ server.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
 })
 
-req.on('data', (chunk) => {
+/*req.on('data', (chunk) => {
     console.log('You received a chunk of data', chunk)
   })
 
-  res.end('some data')
+  res.end('some data')*/
+
+  app.get('/products', (req, res) => {
+    // handle the request
+  })
 
 
 
