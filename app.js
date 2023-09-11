@@ -9,7 +9,7 @@ app.listen(port,() => console.log(`App is listening on port ${port}!`));
 
     next()
 
-
+    }
 app.use(headSetter)
 app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
     res.send([
@@ -22,9 +22,10 @@ app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
             "github_repo_url": "https://github.com/veemish/taskone_simple_api",
             "status_code": 200 
         }
-    ])
+    ]);
 });
-/*app.get("/api",(req, res) => {
+/*
+app.get("/api",(req, res) => {
    let slack_name = req.query.slack_name
     let track = req.query.track
     /*Date time*/
@@ -51,10 +52,10 @@ app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
 
 
 
-/*app.get('*', (req, res) => {
+app.get('*', (req, res) => {
     res.status(404).json({"error":"The page your looking for is not here"})
-})
-*/
+})*/
+
 
 
 
