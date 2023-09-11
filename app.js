@@ -5,7 +5,7 @@ const http = require('http');
 const PORT = 4000;
 
 const server = http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'object'});
+  res.writeHead(200, {'Content-Type': 'parameters'});
   res.end({"slack_name": "Vee",
   "current_day": "Sunday",
   "utc_time": "2023-09-10T19:05:00",
@@ -27,7 +27,7 @@ server.listen(PORT, () => {
 
   app.get('/api?slack_name=Vee&&track=backend', (req, res) => {
     // handle the request
-    res.send('object')
+    res.send('paramters')
   })
 
 
