@@ -21,6 +21,7 @@ server.listen(PORT, () => {
 
   app.get('/products', (req, res) => {
     // handle the request
+    res.send('plain text')
   })
 
 
