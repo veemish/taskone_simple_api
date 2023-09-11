@@ -23,12 +23,12 @@ app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
             "status_code": 200 
         }
     ])
-})
-app.get("/api",(req, res) => {
+});
+/*app.get("/api",(req, res) => {
    let slack_name = req.query.slack_name
     let track = req.query.track
     /*Date time*/
-    let currentDate = new Date()
+   /* let currentDate = new Date()
     let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
     const currentDateNum = currentDate.getDay();
     const daysInWeek = ['Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday','Sunday'];
