@@ -50,7 +50,7 @@ const server = http.createServer((req, res) => {
     JSON.stringify({
  "slack_name": "Vee",
   "current_day": `${currentDayToday}`,
-  "utc_time": utc_time=currentDate.toISOString().slice(0,-5)+"Z",
+  "utc_time": `${utc_time}`,
   "track": "backend",
   "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
   "github_repo_url": "https://github.com/veemish/taskone_simple_api",
