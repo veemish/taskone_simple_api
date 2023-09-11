@@ -3,20 +3,19 @@ const app = express();
 const port = 5000;
 
 const headSetter = (req, res, next) => {
-    res.setHeader('Content-Type', "application/json")
-    res.setHeader('Access-Control-Allow-origin',"*")
+    res.setHeader('Content-Type', 'application/json')
+    res.setHeader('Access-Control-Allow-origin','*')
 
     next()
 }
 
 app.use(headSetter)
 app.get("/api",(req, res) => {
-    
    let slack_name = req.query.slack_name
     let track = req.query.track
     /*Date time*/
     let currentDate = new Date()
-    let utc_time = currentDate.toISOString().slice(0,-5) +'Z';
+    let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
     const currentDateNum = currentDate.getDay();
     const daysInWeek = ['Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday','Sunday'];
     const currentDayToday = daysInWeek[currentDateNum];
@@ -36,7 +35,7 @@ app.get("/api",(req, res) => {
     
 });
 
-app.get("*", (req, res) => {
+app.get('*', (req, res) => {
     res.status(404).json({"error":"The page your looking for is not here"})
 })
 
