@@ -5,24 +5,20 @@ const http = require('http');
 const PORT = 4000;
 
 
-/*let currentDate = new Date()*/
-/*let utc_time = currentDate.toISOString();*//*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
+let currentDate = new Date()
+let utc_time = currentDate.toISOString().split(".")+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
 /*different approach for utc time */
-function utcTime() {
-    const now = new Date();
-    let utc_time = now.toISOString().split(".")[0] + "Z";
-    return utc_time;
-  }
+
 const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
   res.end(
     JSON.stringify({
  "slack_name": "Vee",
   "current_day": `${currentDayToday}`,
-  "utc_time": `${utcTime}`,
+  "utc_time": `${utc_time}`,
   "track": "backend",
   "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
   "github_repo_url": "https://github.com/veemish/taskone_simple_api",
@@ -32,8 +28,15 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)
+
 })
 
+/*  utc function
+function utcTime() {
+    const now = new Date();
+    let utc_time = currentDate.toISOString().split(".")[0] + "Z";
+    return utc_time;
+ */
 /*req.on('data', (chunk) => {
     console.log('You received a chunk of data', chunk)
   })
