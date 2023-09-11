@@ -7,18 +7,37 @@ const http = require('http');
 const PORT = 4000;
 
 
-/*const currentDate = new Date() 
-/*const utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
-const currentDate = new Date().toLocaleString('en-US',{weekday:'long'});
-const utcMilliseconds = new Date().toISOString();
-const utc_time = utcMilliseconds.slice(0, -5) + 'Z';
-const currentUTCHours = new Date().getUTCHours();
+const currentDate = new Date() 
+const utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
 
-/**/
 
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end(
+      JSON.stringify({
+   "slack_name": "Vee",
+    "current_day": `${currentDayToday}`,
+    "utc_time": `${utc_time}`,
+    "track": "backend",
+    "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
+    "github_repo_url": "https://github.com/veemish/taskone_simple_api",
+    "status_code": 200},
+     ));
+  });
+  
+  server.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`)
+  
+  })
+
+/**/
+/*const currentDate = new Date().toLocaleString('en-US',{weekday:'long'});
+/*const utcMilliseconds = new Date().toISOString();
+const utc_time = utcMilliseconds.slice(0, -5) + 'Z';
+const currentUTCHours = new Date().getUTCHours(); deploy failed*/
 // const currentUtcTime = new Date().toISOString();
 
 /*const current = new Date();
@@ -48,24 +67,7 @@ const currentDayToday = daysInWeek[currentDateNum];*/
 const currentDayToday = daysInWeek[new Date().getDay()];*/
 
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'application/json'});
-  res.end(
-    JSON.stringify({
- "slack_name": "Vee",
-  "current_day": `${currentDayToday}`,
-  "utc_time": `${utc_time}`,
-  "track": "backend",
-  "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
-  "github_repo_url": "https://github.com/veemish/taskone_simple_api",
-  "status_code": 200},
-   ));
-});
 
-server.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`)
-
-})
 /*app.get('/api?slack_name=Vee&track=backend', (req, res) => {
     
 
