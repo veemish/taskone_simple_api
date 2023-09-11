@@ -5,7 +5,7 @@ const http = require('http');
 const PORT = 4000;
 
 
-let currentDate = new Date() 
+const currentDate = new Date() 
 const utc_time = currentDate.toISOString().slice(0,-5)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
