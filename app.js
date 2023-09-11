@@ -11,6 +11,19 @@ const headSetter = (req, res, next) => {
 }
 
 app.use(headSetter)
+app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
+    res.send([
+        {
+            "slack_name": "Vee",
+            "current_day": "Sunday",
+            "utc_time": "2023-09-10T19:05:00",
+            "track": "backend",
+            "github_file_url": "https://github.com/veemish/taskone_simple_api/blob/main/app.js",
+            "github_repo_url": "https://github.com/veemish/taskone_simple_api",
+            "status_code": 200 
+        }
+    ])
+})
 app.get("/api",(req, res) => {
    let slack_name = req.query.slack_name
     let track = req.query.track
