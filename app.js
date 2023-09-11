@@ -3,12 +3,12 @@ const app = express();
 const port = 5000;
 app.listen(port,() => console.log(`App is listening on port ${port}!`));
 
-/*const headSetter = (req, res, next) => {
+    const headSetter = (req, res, next) => {
     res.setHeader('Content-Type', 'application/json')
     res.setHeader('Access-Control-Allow-Origin','*')
 
     next()
-}*/
+
 
 app.use(headSetter)
 app.get('/api/slack_name=Vee&&track=backend',(req, res) => {
