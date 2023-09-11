@@ -5,19 +5,19 @@ const http = require('http');
 const PORT = 4000;
 
 
-/*let currentDate = new Date() Brings only current time
-let utc_time = currentDate.toISOString().split(".")+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
-/*const currentDateNum = currentDate.getDay();
-/*const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
-/*const currentDayToday = daysInWeek[currentDateNum];
-/*different approach for utc time */
-/*Time ----------------------------- */
-
-let currentDate = new Date()
-let utc_time = currentDate.toISOString().split(".")[1,-2];/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
+let currentDate = new Date() 
+let utc_time = currentDate.toISOString().slice(0,19)+"Z";/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
 const currentDateNum = currentDate.getDay();
 const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
 const currentDayToday = daysInWeek[currentDateNum];
+
+/*Time ----------------------------- */
+
+/*let currentDate = new Date() undefine for time
+let utc_time = currentDate.toISOString().split(".")[1,-2];/*let utc_time = currentDate.toISOString().slice(0,-5)+'Z'; */
+/*const currentDateNum = currentDate.getDay();
+const daysInWeek = ['Sunday','Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
+const currentDayToday = daysInWeek[currentDateNum];*/
     /*let now = new Date();
     utc_time = currentDate.toISOString().split(".")[0];*/
   
@@ -25,6 +25,7 @@ const currentDayToday = daysInWeek[currentDateNum];
 
 /* works const daysInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const currentDayToday = daysInWeek[new Date().getDay()];*/
+
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'application/json'});
