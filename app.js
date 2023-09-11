@@ -26,12 +26,12 @@ server.listen(PORT, () => {
 
   res.end('some data')*/
 
-  app.get('/api?slack_name=Vee&&track=backend', (req, res) => {
+  app.get('/api?slack_name=Vee&track=backend', (req, res) => {
     // handle the reques
     let currentDate = new Date()
     let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
     const currentDateNum = currentDate.getDay();
-    const daysInWeek = ['Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday','Sunday'];
+    const daysInWeek = ["Sunday",'Monday' ,'Tuesday' ,'Wensday','Thursday','Friday','Saturday'];
     const currentDayToday = daysInWeek[currentDateNum];
    
     const details = {
