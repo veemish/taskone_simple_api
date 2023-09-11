@@ -58,7 +58,7 @@ function utcTime() {
 
   res.end('some data')*/
 
-  /*app.get('/api?slack_name=Vee&track=backend', (req, res) => {
+  app.get('/api?slack_name=Vee&track=backend', (req, res) => {
     // handle the reques
     let currentDate = new Date()
     let utc_time = currentDate.toISOString().slice(0, -5) +'Z';
@@ -78,7 +78,7 @@ function utcTime() {
 
 
     res.send('application/json').json(details)
-  })*/
+  })
 
 
 
